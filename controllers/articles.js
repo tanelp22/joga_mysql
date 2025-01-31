@@ -10,7 +10,14 @@ const getAllarticles = (req, res) => {
   });
 };
 
-module.exports = { getAllarticles };
+const getArticlesBySlug = (req, res) => {
+  let sql = `SELECT * FROM article WHERE slug='${req.params.slug}'`;
+  db.query(sql, (error, result) => {
+    console.log(result);
+  });
+};
+
+module.exports = { getAllarticles, getArticlesBySlug };
 
 //{}
 //[]
